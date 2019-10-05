@@ -112,7 +112,8 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        9. check: ```kubectl.exe version --short --client```
    2. AWS CLI
        1. This program is used to interact with the AWS infrastructure programmatically or using commands
-       2.
+       2. Follow the steps as escribed in the AWS Documentation
+          ```https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows```
    3. aws-iam-authenticator
        1. This program is used to perform authenticatin of EKS using the Access Key and Secret Access Key
        2. Install any terminal emulator like "Mobaxterm' and open the terminal emulator 
