@@ -58,7 +58,7 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        3. AmazonVPCFullAccess
        4. EKS policy created using "Creation of policy (EKS)" 
        5. EKS policy created using "Creation of policy (Cloud Formation Policy)"
-### Creation of IAM role for the user
+### Creation of EKS Role
     1. Services -> IAM -> Roles
     2. Create Role -> EKS -> Next -> Next -> .... Provide a Name -> Create Role
 ### Generation of the SSH keys
@@ -88,4 +88,14 @@ This repo is to setup kubernates environment on AWS. This contains files generat
    5. Specify the CIDR block for the VPC and the Subnets.
        1. The CIDR block for the subnet should belong to the subset of the VPC
    6. Click Next and click on "Create Stack"
+## Creation of Kubernates(EKS) Cluster (Control plane)
+   1. Services -> EKS -> Clusters
+   2. Create Clusters and enter the following parameters
+       1. Cluster Name
+       2. Kubrenates version (default should be ok)
+       3. Role. Select the role created using "Creation of EKS Role"
+       4. VPC. Select the VPC created using the cloud formation
+       5. Subnets. Select all the subnets created using the cloud formation
+       6. Security Group. Select the Security Group created by cloud formation 
+   3. Click on the "Create".
      
