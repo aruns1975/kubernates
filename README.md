@@ -1,7 +1,7 @@
 # kubernates
 This repo is to setup kubernates environment on AWS. This contains files generated from other tutorials and few self generated files for educational purpose
 
-# Installation of kubernates on AWS (All the below said activities can be done using the cloud formation)
+# Installation of kubernates on AWS
 ## Creation of IAM User and assignment of proper roles.
 ### Creation of IAM User
    1. Services -> IAM -> Users -> Add User
@@ -47,9 +47,9 @@ This repo is to setup kubernates environment on AWS. This contains files generat
         ]
     }
 ```
-### Assignment of policies o the user
+### Assignment of policies to the user
    1. Services -> IAM -> Users
-   2. Select the user created in "Creation of IAM User".
+   2. Select the user created in "Creation of IAM User" and goto "Permissions" tab.
    3. Click on Add Permission
    4. Click on "Attach existing policies directly"
    5. Select the following policies
@@ -58,6 +58,19 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        3. AmazonVPCFullAccess
        4. EKS policy created using "Creation of policy (EKS)" 
        5. EKS policy created using "Creation of policy (Cloud Formation Policy)"
+### Creation of IAM role for the user
+    1. Services -> IAM -> Roles
+    2. Create Role -> EKS -> Next -> Next -> .... Provide a Name -> Create Role
+### Generation of the SSH keys
+    1. Services -> E2C -> Key Pairs
+    2. Create Key Pair -> Provide a name -> Download the .pem file
+    3. the .pem cannot be downloaded again by any manner, thus need to create it again in case if the file is deleted.
+### Creation of Access keys
+   1. Services -> IAM -> Users
+   2. Select the user created in "Creation of IAM User" and goto "Security credentials" tab.
+   3. Click on "Create Access key" and "Download .csv" file button.
+   4. This downloads the access key which contains the "Access key ID" and "Secret access key"
+   5. This file cannot be downloaded again and the "Secret access key" cannot be retreived again by any chance.
 ## Creation of the VPC, subnets and other networking infrastructure.
 ### Terminalogies
    1. VPC - Virtual Private Network (Your own private data center with in AWS)
