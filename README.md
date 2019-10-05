@@ -16,17 +16,17 @@ This repo is to setup kubernates environment on AWS. This contains files generat
    4. Click on Review Policy and create the policy
    5. Sample jSON
 ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "VisualEditor0",
-                    "Effect": "Allow",
-                    "Action": "eks:*",
-                    "Resource": "*"
-                }
-            ]
-        }
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VisualEditor0",
+                "Effect": "Allow",
+                "Action": "eks:*",
+                "Resource": "*"
+            }
+        ]
+    }
 ```
 ### Creation of policy (Cloud Formation)
    1. Services -> IAM -> policies -> Create Policy
@@ -35,24 +35,27 @@ This repo is to setup kubernates environment on AWS. This contains files generat
    4. Click on Review Policy and create the policy
    5. Sample jSON
 ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "VisualEditor0",
-                    "Effect": "Allow",
-                    "Action": "cloudformation:*",
-                    "Resource": "*"
-                }
-            ]
-        }
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VisualEditor0",
+                "Effect": "Allow",
+                "Action": "cloudformation:*",
+                "Resource": "*"
+            }
+        ]
+    }
 ```
-   1. Create am IAM account
-      1. It is not a good policy to use root account
-      2. Create the IAM Account ()
-   - Creation of VPC
-   - Creation of Subnet
-   - Creation of Internet Gateway
-   - Creation of Routing Table
-   - Association of routing table to all Subnets
-   - Creation of security Group
+### Assignment of policies o the user
+   1. Services -> IAM -> Users
+   2. Select the user created in "Creation of IAM User".
+   3. Click on Add Permission
+   4. Click on "Attach existing policies directly"
+   5. Select the following policies
+       1. AmazonEC2FullAccess
+       2. IAMFullAccess
+       3. AmazonVPCFullAccess
+       4. EKS policy created using "Creation of policy (EKS)" 
+       5. EKS policy created using "Creation of policy (Cloud Formation Policy)"
+      
