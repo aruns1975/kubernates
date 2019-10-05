@@ -98,4 +98,22 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        5. Subnets. Select all the subnets created using the cloud formation
        6. Security Group. Select the Security Group created by cloud formation 
    3. Click on the "Create".
+## Installation of client on laptop or desktop
+### Required Softwares
+   1. Kubectl
+       1. This is the client program to manage the kubernates cluster. The user can interact with the kubernated master using the kubectl
+       2. Install any terminal emulator like "Mobaxterm' and open the terminal emulator 
+       3. curl -k -# -o kubectl.exe https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/windows/amd64/kubectl.exe
+       4. chmod +x kubectl.exe
+       5. mkdir $HOME/bin
+       6. mv kubectl.exe $HOME/bin
+       7. echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+       8. source .bashrc
+  ```
+    * check: ```kubectl.exe version --short --client```
+   2. AWS CLI
+       1. This program is used to interact with the AWS infrastructure programmatically or using commands
+       2.
+   3. aws-iam-authenticator
+       1. This program is used to perform authenticatin of EKS using the Access Key and Secret Access Key
      
