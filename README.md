@@ -127,6 +127,8 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        3. Edit the file credentials and provide value for the the following properties.(these values are generated and downloaded using the "Creation of Access keys")
            1. aws_access_key_id
            2. aws_secret_access_key 
+       4. Step to test aws-iam-authenticator
+          ```aws-iam-authenticator token -i <<kubernates cluster name>>``` 
     5. configuring kubectl
        1. Create the folder ".kube" under the user home.
        2. Copy the file "client/kube-config-eks" to the folder ".kube"
@@ -138,4 +140,25 @@ This repo is to setup kubernates environment on AWS. This contains files generat
           ```kubectl get svc ```
        5. step to Test config
           ```kubectl config view ```
-     
+## Installation of Kubernates worker nodes on AWS
+### Clouf formation template file
+  1. The cloud formation yml file for the creation of VPC is placed under folder "cloud-formation/EKS-Worker-node-Cloud-Formation-Template.yaml"
+### Creating the Nodes and security groups on AWS
+  1. Services -> CloudFormation -> Create Stack
+  2. Select "Template is ready" and "Upload a template file" -> Choose File and select the file "cloud-formation/EKS-Worker-node-Cloud-Formation-Template.yaml"
+  3.  Click next
+  4. Provide the Stack Name "My-ekS-worker-stack"  
+  5. Specify the value for the following properties
+       1. VPC should be selected from the VPC we have created for the Master
+       2. Select all the subnets
+  6. Click Next and click on "Create Stack"
+  7. Open the inbound port 22 for SSH so that it is possible to connect to the Worker node using SSH(putty). This can be done by selecting the security group of the node and add an Inbound rule.
+  8. The default user provided by Amazon for EKS Node is ec2-user
+  9. Connect to any node by executing the command ```ssh -i <pem file> ec2-user@<node ip>```
+  10. Try to check the logs of the service "kubelet" by typing the command ```sudo journalctl -f -u kubelet```
+  11. The log should show 'Unauthorised Exception'. Follow the next step.
+### Configuring the node to join the cluster (Configmap)
+  1. Edit the file "client\aws-auth.yaml" and provide the value for the place holder "role-arn-from-previous-step"
+  2. The value can be found in the ouput section of the node stack creation ("NodeInstanceRole")
+  3. Save the file and execute the command ```kubectl apply -f aws-auth.yaml```
+  4. Check the working by executing the command ```kubectl.exe get nodes```
