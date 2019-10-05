@@ -58,4 +58,21 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        3. AmazonVPCFullAccess
        4. EKS policy created using "Creation of policy (EKS)" 
        5. EKS policy created using "Creation of policy (Cloud Formation Policy)"
-      
+## Creation of the VPC, subnets and other networking infrastructure.
+### Terminalogies
+   1. VPC - Virtual Private Network (Your own private data center with in AWS)
+   2. Subnets - For data isolation
+   3. Internet Gateway - For accessing the public network from AWS system
+   4. Routing Table - To make sure that the subnets are aware of how to connect to internet using the Internet Gateway
+   5. Cloud Formation - It is a service which allows to create the infrastucture required using the config file.
+### Cloud Formation config file
+   1. The cloud formation yml file for the creation of VPC is placed under folder "cloud-formation/EKS-VPC-Cloud-Formation-Template.yml"
+### Creation of basic infrastruture using Cloud Formation
+   1. Services -> CloudFormation -> Create Stack
+   2. Select "Template is ready" and "Upload a template file" -> Choose File and select the file "cloud-formation/EKS-VPC-Cloud-Formation-Template.yml"
+   3.  Click next
+   4. Provide the Stack Name "My-ekS-vpc-stack"  
+   5. Specify the CIDR block for the VPC and the Subnets.
+       1. The CIDR block for the subnet should belong to the subset of the VPC
+   6. Click Next and click on "Create Stack"
+     
