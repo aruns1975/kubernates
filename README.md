@@ -15,8 +15,8 @@ This repo is to setup kubernates environment on AWS. This contains files generat
    3. For the Resources select All Resources
    4. Click on Review Policy and create the policy
    5. Sample jSON
-   `
-    {
+```
+        {
             "Version": "2012-10-17",
             "Statement": [
                 {
@@ -27,15 +27,15 @@ This repo is to setup kubernates environment on AWS. This contains files generat
                 }
             ]
         }
-    `
+```
 ### Creation of policy (Cloud Formation)
    1. Services -> IAM -> policies -> Create Policy
    2. For the Service select Cloud Formation and All CloudFormation Actions
    3. For the Resources select All Resources
    4. Click on Review Policy and create the policy
    5. Sample jSON
-   `
-    {
+```
+        {
             "Version": "2012-10-17",
             "Statement": [
                 {
@@ -46,7 +46,7 @@ This repo is to setup kubernates environment on AWS. This contains files generat
                 }
             ]
         }
-    `
+```
    1. Create am IAM account
       1. It is not a good policy to use root account
       2. Create the IAM Account ()
