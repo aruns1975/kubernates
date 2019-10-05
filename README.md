@@ -120,4 +120,19 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        4. chmod +x aws-iam-authenticator.exe
        5. mv aws-iam-authenticator.exe $HOME/bin
        6. Test: ```aws-iam-authenticator.exe help```
+   4. Configuring aws-iam-authenticator
+       1. Create the folder ".aws" under the user home (C:\users\<username>).
+       2. Copy the file "client/credentials" to the folder ".aws"
+       3. Edit the file credentials and provide value for the the following properties.(these values are generated and downloaded using the "Creation of Access keys")
+           1. aws_access_key_id
+           2. aws_secret_access_key 
+    5. configuring kubectl
+       1. Create the folder ".kube" under the user home.
+       2. Copy the file "client/kube-config-eks" to the folder ".kube"
+       3. Edit the file "kube-config-eks" and provide value for the following properties. (These values are generate uring the step "Creation of Kubernates(EKS) Cluster (Control plane)")
+           1. endpoint-url
+           2. base64-encoded-ca-cert
+           3. cluster name
+       4. Step to test the configuration
+          ```kubectl get svc ```
      
