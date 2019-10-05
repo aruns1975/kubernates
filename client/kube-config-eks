@@ -21,4 +21,4 @@ users:
       args:
         - "token"
         - "-i"
-        - "EKS-course-cluster"
+        - "<cluster name>"
