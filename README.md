@@ -133,6 +133,8 @@ This repo is to setup kubernates environment on AWS. This contains files generat
            1. endpoint-url
            2. base64-encoded-ca-cert
            3. cluster name
-       4. Step to test the configuration
+       4. Step to Test connectivity and access
           ```kubectl get svc ```
+       5. step to Test config
+          ```kubectl config view ```
      
