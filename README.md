@@ -109,11 +109,15 @@ This repo is to setup kubernates environment on AWS. This contains files generat
        6. mv kubectl.exe $HOME/bin
        7. echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
        8. source .bashrc
-  ```
-    * check: ```kubectl.exe version --short --client```
+       9. check: ```kubectl.exe version --short --client```
    2. AWS CLI
        1. This program is used to interact with the AWS infrastructure programmatically or using commands
        2.
    3. aws-iam-authenticator
        1. This program is used to perform authenticatin of EKS using the Access Key and Secret Access Key
+       2. Install any terminal emulator like "Mobaxterm' and open the terminal emulator 
+       3. curl -k -# -o aws-iam-authenticator.exe  https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/windows/amd64/aws-iam-authenticator.exe
+       4. chmod +x aws-iam-authenticator.exe
+       5. mv aws-iam-authenticator.exe $HOME/bin
+       6. Test: ```aws-iam-authenticator.exe help```
      
