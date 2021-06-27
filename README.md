@@ -18,7 +18,7 @@ Refer this link for documentation: https://devopscube.com/kubernetes-cluster-vag
 To provision the cluster, execute the following commands.
 
 ```shell
-git clone https://github.com/aruns1975/vagrant-kubeadm-kubernetes.git
+git clone https://github.com/aruns1975/kubernates.git
 cd vagrant-kubeadm-kubernetes
 vagrant up
 ```
