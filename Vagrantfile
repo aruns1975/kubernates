@@ -19,15 +19,15 @@ Vagrant.configure("2") do |config|
       master.vm.provision "shell", path: "scripts/master.sh"
     end
 
-    (1..1).each do |i|
+    (1..2).each do |i|
   
     config.vm.define "worker-node0#{i}" do |node|
       node.vm.box = "ubuntu/focal64"
       node.vm.hostname = "worker-node0#{i}"
       node.vm.network "private_network", ip: "10.0.0.1#{i}"
       node.vm.provider "virtualbox" do |vb|
-          vb.memory = 10240
-          vb.cpus = 4
+          vb.memory = 2048
+          vb.cpus = 1
 		  vb.name="worker-node0#{i}"
       end
       node.vm.provision "shell", path: "scripts/common.sh"
